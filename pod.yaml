@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: db
+      image: mysql:8.0
+      ports:
+        - containerPort: 3306
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        - name: MYSQL_DATABASE
+          value: "ujian"
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: db-data
+
+    - name: app
+      image: mygo
+      ports:
+        - containerPort: 3000
+      # env:
+        # - name: DB_HOST
+          # value: "db"
+        # - name: DB_PORT
+          # value: "3306"
+        # - name: DB_USER
+          # value: "root"
+        # - name: DB_PASSWORD
+          # value: "example"
+        # - name: DB_NAME
+          # value: "mydatabase"
+  volumes:
+    - name: db-data
+      persistentVolumeClaim:
+        claimName: mysql-pvc
