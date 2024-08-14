@@ -1,4 +1,4 @@
 #!/bin/sh
-podman pod crete --name app-pod -p 80:3000 -p 3306:3306
-podman run -d --pod app-pod --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian mysql:8.0
-podman run -it --pod app-pod --name app -v ./Public/app/storage:/app/Public/app/storage:Z myapp:latest
+podman pod create --name mypod -p 80:3000 -p 3306:3306
+podman run -d --pod mypod --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian mysql:8.0
+podman run -it --pod mypod --name app -v ./Public/app/storage:/app/Public/app/storage:Z myapp:latest
