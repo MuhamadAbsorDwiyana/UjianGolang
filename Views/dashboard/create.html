@@ -1,0 +1,38 @@
+<div class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Create New Entry</h2>
+    <form class="w-full max-w-lg bg-white p-8 shadow-md rounded-lg" action="/visitor/create" method="post" enctype="multipart/form-data">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="avatar">
+                Upload avatar
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="avatar" id="avatar" type="file" accept="image/*">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="name" id="name" type="text" placeholder="Enter Name">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="identity">
+                Identity
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="identity" id="identity" type="text" placeholder="Enter Identity Number">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                Address
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="address" id="address" type="text" placeholder="Enter Address">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="age">
+                Age
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="age" id="age" type="number" placeholder="Enter Age">
+        </div>
+        <div class="flex items-center justify-between">
+            <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
