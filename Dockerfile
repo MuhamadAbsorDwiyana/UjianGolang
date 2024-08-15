@@ -1,7 +1,8 @@
 # Tahap 1: Build Stage
 FROM golang:1.22-alpine AS builder
 
-ENV GO111MODULE=on
+# For old version Go
+# ENV GO111MODULE=on
 
 WORKDIR /app
 
@@ -23,6 +24,7 @@ WORKDIR /app
 
 # Copy semua file dan folder dari tahap build
 COPY --from=builder /app .
+COPY --from=builder /.env-example ./.env
 
 # Expose port yang digunakan oleh aplikasi
 EXPOSE 3000
