@@ -1,7 +1,0 @@
-#!/bin/sh
-# sudo sysctl net.ipv4.ip_unprivileged_port_start=80 # Default 1024
-cp .env-example .env
-podman build -t app .
-podman pod create --name mypod -p 80:3000 -p 3306:3306
-podman run -d --pod mypod --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian mysql:latest
-podman run -it --pod mypod --name app -v ./Public/app/storage:/app/Public/app/storage:Z myapp:latest

@@ -1,0 +1,9 @@
+poman build -t myapp .
+podman pod create --name main -p 80:80 -p 3000:3000 -p 3306:3306
+podman run -d --pod main --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian -v db-volume:/var/lib/mysql:Z mysql:lts
+
+# JEDA DULU 30 detik
+# bisa pake free -s 3 -c 10
+
+podman run -d --pod main --name app -v storage-volume:/app/Public/app/storage/:Z --replace myapp:latest
+podman run -d --pod main --name nginx -v /root/app/nginx.conf:/etc/nginx/conf.d/default.conf:Z nginx:stable-alpine
