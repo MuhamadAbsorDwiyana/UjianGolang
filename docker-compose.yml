@@ -1,45 +1,36 @@
 version: '3.8'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    # environment:
-      # - DB_HOST=db
-      # - DB_PORT=3306
-      # - DB_USER=root
-      # - DB_PASSWORD=example
-      # - DB_NAME=mydatabase
-    depends_on:
-      db:
-        condition: service_healthy
-    command: ["sh", "-c", "sleep 5 && ./main"]
-    networks:
-      - app-network
-
   db:
     image: mysql:latest
-    volumes:
-      - db-data:/var/lib/mysql
+    # volumes:
+      # - db-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=ujian
     ports:
       - "3306:3306"
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
+    command: free -s 2 -c 30
     networks:
       - app-network
 
-volumes:
-  db-data:
+  app:
+    stdin_open: true
+    tty: true
+    image: myapp:latest
+    # build:
+      # context: .
+      # dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      db
+    # command: ["sh", "-c", "sleep 60 && ./main"]
+    networks:
+      - app-network
+
+# volumes:
+  # db-data:
 
 networks:
   app-network:

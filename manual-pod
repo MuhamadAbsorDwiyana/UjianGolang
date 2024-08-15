@@ -1,4 +1,6 @@
 #!/bin/sh
+cp .env-example .env
+#podman build -t app .
 podman pod create --name mypod -p 80:3000 -p 3306:3306
-podman run -d --pod mypod --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian mysql:8.0
+podman run -d --pod mypod --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ujian mysql:latest
 podman run -it --pod mypod --name app -v ./Public/app/storage:/app/Public/app/storage:Z myapp:latest

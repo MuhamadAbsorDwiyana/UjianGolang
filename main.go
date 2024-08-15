@@ -1,9 +1,9 @@
 package main
 
 import (
-	db "UjianGolang/Configs"
-	models "UjianGolang/Models"
-	web "UjianGolang/Routes"
+	db "github.com/MuhamadAbsorDwiyana/UjianGolang/Configs"
+	models "github.com/MuhamadAbsorDwiyana/UjianGolang/Models"
+	web "github.com/MuhamadAbsorDwiyana/UjianGolang/Routes"
 )
 
 func main() {

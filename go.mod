@@ -1,4 +1,4 @@
-module UjianGolang
+module github.com/MuhamadAbsorDwiyana/UjianGolang
 
 go 1.22.5
 

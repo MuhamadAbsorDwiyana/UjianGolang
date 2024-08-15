@@ -1,11 +1,12 @@
 package controllers
 
 import (
-	db "UjianGolang/Configs"
-	models "UjianGolang/Models"
 	"os"
 	"strconv"
 	"strings"
+
+	db "github.com/MuhamadAbsorDwiyana/UjianGolang/Configs"
+	models "github.com/MuhamadAbsorDwiyana/UjianGolang/Models"
 
 	"github.com/gofiber/fiber/v2"
 )

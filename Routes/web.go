@@ -1,9 +1,10 @@
 package routes
 
 import (
-	ct "UjianGolang/Controllers"
 	"log"
 	"os"
+
+	ct "github.com/MuhamadAbsorDwiyana/UjianGolang/Controllers"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
@@ -32,7 +33,7 @@ func Setup() {
 	app.Get("/visitor", ct.ListVisitor)
 	app.Get("/visitor/create", func(c *fiber.Ctx) error {
 		return c.Render("dashboard/create", fiber.Map{
-			"Title":   "Homepage",
+			"Title":   "Create New Data",
 			"AppName": os.Getenv("APP_NAME"),
 		}, "layouts/app")
 	})
