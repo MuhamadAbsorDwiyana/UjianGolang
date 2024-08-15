@@ -24,7 +24,7 @@ WORKDIR /app
 
 # Copy semua file dan folder dari tahap build
 COPY --from=builder /app .
-COPY --from=builder /.env-example ./.env
+COPY --from=builder /app/.env-example ./.env
 
 # Expose port yang digunakan oleh aplikasi
 EXPOSE 3000
