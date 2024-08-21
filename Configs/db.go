@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -31,7 +31,7 @@ func InitDB() {
 	)
 
 	// Check database connecton
-	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	// If error return sql error log
 	if err != nil {
 		return
