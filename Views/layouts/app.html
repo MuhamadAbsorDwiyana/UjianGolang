@@ -6,10 +6,11 @@
     <title>{{ .Title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"  rel="stylesheet" />
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
+    <!-- <body class="bg-gray-100 text-gray-800"> -->
     {{template "partials/header" .}}
 
-    <main>
+    <main class="mb-10">
         {{embed}}
     </main>
 
