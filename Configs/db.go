@@ -24,9 +24,9 @@ func InitDB() {
 	// Set env info + set database
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=5432 sslmode=require TimeZone=Asia/Jakarta",
+		os.Getenv("DB_HOST"),
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_HOST"),
 		os.Getenv("DB_DBNAME"),
 	)
 
