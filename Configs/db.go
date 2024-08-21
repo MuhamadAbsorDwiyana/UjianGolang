@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -17,14 +16,14 @@ var DB *gorm.DB
 // Function for init Database
 func InitDB() {
 	// get .env content use godotenv
-	godotenv.Load()
+	//godotenv.Load()
 
 	// Set err as error type data
 	var err error
 
 	// Set env info + set database
 	dsn := fmt.Sprintf(
-		"%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		"host=%s user=%s password=%s dbname=%s port=5432 sslmode=require TimeZone=Asia/Jakarta",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_HOST"),
